@@ -2,13 +2,10 @@ package seedu.address.model.application;
 
 import static seedu.address.commons.util.CollectionUtil.requireAllNonNull;
 
-import java.util.Collections;
-import java.util.HashSet;
 import java.util.Objects;
-import java.util.Set;
+import java.util.Optional;
 
 import seedu.address.commons.util.ToStringBuilder;
-import seedu.address.model.tag.Tag;
 
 /**
  * Represents an Application in the address book.
@@ -18,51 +15,56 @@ public class Application {
 
     // Identity fields
     private final Company company;
-    private final Phone phone;
-    private final Email email;
+    private final Role role;
 
     // Data fields
-    private final Address address;
-    private final Set<Tag> tags = new HashSet<>();
+    private final Optional<Location> location;
+    private final ApplicationDate applicationDate;
+    private final Status status;
+    private final Optional<Url> url;
 
     /**
-     * Every field must be present and not null.
+     * Company, role, and location are required.
+     * applicationDate and status default if not provided.
+     * url is optional.
      */
-    public Application(Company company, Phone phone, Email email, Address address, Set<Tag> tags) {
-        requireAllNonNull(company, phone, email, address, tags);
+    public Application(Company company, Role role, Optional<Location> location,
+                       ApplicationDate applicationDate, Status status, Optional<Url> url) {
+        requireAllNonNull(company, role, location, applicationDate, status);
         this.company = company;
-        this.phone = phone;
-        this.email = email;
-        this.address = address;
-        this.tags.addAll(tags);
+        this.role = role;
+        this.location = location == null ? Optional.empty() : location;
+        this.applicationDate = applicationDate;
+        this.status = status;
+        this.url = url == null ? Optional.empty() : url;
     }
 
     public Company getCompany() {
         return company;
     }
 
-    public Phone getPhone() {
-        return phone;
+    public Role getRole() {
+        return role;
     }
 
-    public Email getEmail() {
-        return email;
+    public Optional<Location> getLocation() {
+        return location;
     }
 
-    public Address getAddress() {
-        return address;
+    public ApplicationDate getApplicationDate() {
+        return applicationDate;
+    }
+
+    public Status getStatus() {
+        return status;
+    }
+
+    public Optional<Url> getUrl() {
+        return url;
     }
 
     /**
-     * Returns an immutable tag set, which throws {@code UnsupportedOperationException}
-     * if modification is attempted.
-     */
-    public Set<Tag> getTags() {
-        return Collections.unmodifiableSet(tags);
-    }
-
-    /**
-     * Returns true if both applications have the same company name.
+     * Returns true if both applications have the same company name and role.
      * This defines a weaker notion of equality between two applications.
      */
     public boolean isSameApplication(Application otherApplication) {
@@ -71,7 +73,8 @@ public class Application {
         }
 
         return otherApplication != null
-                && otherApplication.getCompany().equals(getCompany());
+                && otherApplication.getCompany().equals(getCompany())
+                && otherApplication.getRole().equals(getRole());
     }
 
     /**
@@ -91,26 +94,27 @@ public class Application {
 
         Application otherApplication = (Application) other;
         return company.equals(otherApplication.company)
-                && phone.equals(otherApplication.phone)
-                && email.equals(otherApplication.email)
-                && address.equals(otherApplication.address)
-                && tags.equals(otherApplication.tags);
+                && role.equals(otherApplication.role)
+                && location.equals(otherApplication.location)
+                && applicationDate.equals(otherApplication.applicationDate)
+                && status.equals(otherApplication.status)
+                && url.equals(otherApplication.url);
     }
 
     @Override
     public int hashCode() {
-        // use this method for custom fields hashing instead of implementing your own
-        return Objects.hash(company, phone, email, address, tags);
+        return Objects.hash(company, role, location, applicationDate, status, url);
     }
 
     @Override
     public String toString() {
         return new ToStringBuilder(this)
                 .add("company", company)
-                .add("phone", phone)
-                .add("email", email)
-                .add("address", address)
-                .add("tags", tags)
+                .add("role", role)
+                .add("location", location)
+                .add("applicationDate", applicationDate)
+                .add("status", status)
+                .add("url", url.map(Object::toString).orElse(""))
                 .toString();
     }
 

@@ -43,7 +43,7 @@ public class Messages {
                 .append("; Email: ")
                 .append(application.getEmail())
                 .append("; URL: ")
-                .append(application.getUrl())
+                .append(application.getUrl().map(u -> u.value).orElse("-"))
                 .append("; Tags: ");
         application.getTags().forEach(builder::append);
         return builder.toString();

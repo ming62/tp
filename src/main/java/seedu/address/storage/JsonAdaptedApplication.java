@@ -3,6 +3,7 @@ package seedu.address.storage;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -53,7 +54,7 @@ class JsonAdaptedApplication {
         company = source.getCompany().value;
         phone = source.getPhone().value;
         email = source.getEmail().value;
-        url = source.getUrl().value;
+        url = source.getUrl().map(u -> u.value).orElse(null);
         tags.addAll(source.getTags().stream()
                 .map(JsonAdaptedTag::new)
                 .collect(Collectors.toList()));
@@ -94,13 +95,13 @@ class JsonAdaptedApplication {
         }
         final Email modelEmail = new Email(email);
 
-        if (url == null) {
-            throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT, Url.class.getSimpleName()));
+        Optional<Url> modelUrl = Optional.empty();
+        if (url != null) {
+            if (!Url.isValidUrl(url)) {
+                throw new IllegalValueException(Url.MESSAGE_CONSTRAINTS);
+            }
+            modelUrl = Optional.of(new Url(url));
         }
-        if (!Url.isValidUrl(url)) {
-            throw new IllegalValueException(Url.MESSAGE_CONSTRAINTS);
-        }
-        final Url modelUrl = new Url(url);
 
         final Set<Tag> modelTags = new HashSet<>(applicationTags);
         return new Application(modelCompany, modelPhone, modelEmail, modelUrl, modelTags);

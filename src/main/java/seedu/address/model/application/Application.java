@@ -3,6 +3,7 @@ package seedu.address.model.application;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.Objects;
+import java.util.Optional;
 import java.util.Set;
 
 import static seedu.address.commons.util.CollectionUtil.requireAllNonNull;
@@ -21,13 +22,13 @@ public class Application {
     private final Email email;
 
     // Data fields
-    private final Url url;
+    private final Optional<Url> url;
     private final Set<Tag> tags = new HashSet<>();
 
     /**
      * Every field must be present and not null.
      */
-    public Application(Company company, Phone phone, Email email, Url url, Set<Tag> tags) {
+    public Application(Company company, Phone phone, Email email, Optional<Url> url, Set<Tag> tags) {
         requireAllNonNull(company, phone, email, url, tags);
         this.company = company;
         this.phone = phone;
@@ -48,7 +49,7 @@ public class Application {
         return email;
     }
 
-    public Url getUrl() {
+    public Optional<Url> getUrl() {
         return url;
     }
 

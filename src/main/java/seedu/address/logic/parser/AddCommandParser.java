@@ -1,5 +1,6 @@
 package seedu.address.logic.parser;
 
+import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Stream;
 
@@ -42,7 +43,8 @@ public class AddCommandParser implements Parser<AddCommand> {
         Company company = ParserUtil.parseCompany(argMultimap.getValue(PREFIX_COMPANY).get());
         Phone phone = ParserUtil.parsePhone(argMultimap.getValue(PREFIX_PHONE).get());
         Email email = ParserUtil.parseEmail(argMultimap.getValue(PREFIX_EMAIL).get());
-        Url url = ParserUtil.parseUrl(argMultimap.getValue(PREFIX_URL).get());
+        Optional<String> urlvalue = argMultimap.getValue(PREFIX_URL);
+        Optional<Url> url = urlvalue.isPresent() ? Optional.of(ParserUtil.parseUrl(urlvalue.get())) : Optional.empty();
         Set<Tag> tagList = ParserUtil.parseTags(argMultimap.getAllValues(PREFIX_TAG));
 
         Application application = new Application(company, phone, email, url, tagList);

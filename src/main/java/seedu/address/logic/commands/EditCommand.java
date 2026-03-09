@@ -99,7 +99,7 @@ public class EditCommand extends Command {
         Company updatedCompany = editApplicationDescriptor.getCompany().orElse(applicationToEdit.getCompany());
         Phone updatedPhone = editApplicationDescriptor.getPhone().orElse(applicationToEdit.getPhone());
         Email updatedEmail = editApplicationDescriptor.getEmail().orElse(applicationToEdit.getEmail());
-        Url updatedUrl = editApplicationDescriptor.getUrl().orElse(applicationToEdit.getUrl());
+        Optional<Url> updatedUrl = editApplicationDescriptor.getUrl().isPresent() ? editApplicationDescriptor.getUrl() : applicationToEdit.getUrl();
         Set<Tag> updatedTags = editApplicationDescriptor.getTags().orElse(applicationToEdit.getTags());
 
         return new Application(updatedCompany, updatedPhone, updatedEmail, updatedUrl, updatedTags);
@@ -137,7 +137,7 @@ public class EditCommand extends Command {
         private Company company;
         private Phone phone;
         private Email email;
-        private Url url;
+        private Optional<Url> url;
         private Set<Tag> tags;
 
         public EditApplicationDescriptor() {}
@@ -185,12 +185,12 @@ public class EditCommand extends Command {
             return Optional.ofNullable(email);
         }
 
-        public void setUrl(Url url) {
+        public void setUrl(Optional<Url> url) {
             this.url = url;
         }
 
         public Optional<Url> getUrl() {
-            return Optional.ofNullable(url  );
+            return url;
         }
 
         /**

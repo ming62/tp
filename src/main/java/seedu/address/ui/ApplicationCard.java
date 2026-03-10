@@ -49,7 +49,7 @@ public class ApplicationCard extends UiPart<Region> {
         this.application = application;
         id.setText(displayedIndex + ". ");
         company.setText(application.getCompany().value);
-        phone.setText(application.getPhone().value);
+        phone.setText(application.getRole().value);
         address.setText(application.getAddress().value);
         email.setText(application.getEmail().value);
         application.getTags().stream()

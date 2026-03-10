@@ -18,7 +18,7 @@ public class Application {
 
     // Identity fields
     private final Company company;
-    private final Phone phone;
+    private final Role role;
     private final Email email;
 
     // Data fields
@@ -28,10 +28,10 @@ public class Application {
     /**
      * Every field must be present and not null.
      */
-    public Application(Company company, Phone phone, Email email, Address address, Set<Tag> tags) {
-        requireAllNonNull(company, phone, email, address, tags);
+    public Application(Company company, Role role, Email email, Address address, Set<Tag> tags) {
+        requireAllNonNull(company, role, email, address, tags);
         this.company = company;
-        this.phone = phone;
+        this.role = role;
         this.email = email;
         this.address = address;
         this.tags.addAll(tags);
@@ -41,8 +41,8 @@ public class Application {
         return company;
     }
 
-    public Phone getPhone() {
-        return phone;
+    public Role getRole() {
+        return role;
     }
 
     public Email getEmail() {
@@ -71,7 +71,8 @@ public class Application {
         }
 
         return otherApplication != null
-                && otherApplication.getCompany().equals(getCompany());
+                && otherApplication.getCompany().equals(getCompany())
+                && otherApplication.getRole().equals(getRole());
     }
 
     /**
@@ -91,7 +92,7 @@ public class Application {
 
         Application otherApplication = (Application) other;
         return company.equals(otherApplication.company)
-                && phone.equals(otherApplication.phone)
+                && role.equals(otherApplication.role)
                 && email.equals(otherApplication.email)
                 && address.equals(otherApplication.address)
                 && tags.equals(otherApplication.tags);
@@ -100,14 +101,14 @@ public class Application {
     @Override
     public int hashCode() {
         // use this method for custom fields hashing instead of implementing your own
-        return Objects.hash(company, phone, email, address, tags);
+        return Objects.hash(company, role, email, address, tags);
     }
 
     @Override
     public String toString() {
         return new ToStringBuilder(this)
                 .add("company", company)
-                .add("phone", phone)
+                .add("role", role)
                 .add("email", email)
                 .add("address", address)
                 .add("tags", tags)

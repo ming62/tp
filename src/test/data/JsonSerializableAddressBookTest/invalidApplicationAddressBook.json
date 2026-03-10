@@ -1,7 +1,7 @@
 {
   "applications": [ {
     "company": "Hans Muster",
-    "phone": "9482424",
+    "role": "Software Engineer",
     "email": "invalid@email!3e",
     "address": "4th street"
   } ]

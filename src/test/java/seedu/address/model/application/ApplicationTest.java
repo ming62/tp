@@ -6,7 +6,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_ADDRESS_BOB;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_COMPANY_BOB;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_EMAIL_BOB;
-import static seedu.address.logic.commands.CommandTestUtil.VALID_PHONE_BOB;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_ROLE_BOB;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_TAG_HUSBAND;
 import static seedu.address.testutil.Assert.assertThrows;
 import static seedu.address.testutil.TypicalApplications.ALICE;
@@ -32,8 +32,8 @@ public class ApplicationTest {
         // null -> returns false
         assertFalse(ALICE.isSameApplication(null));
 
-        // same company, all other attributes different -> returns true
-        Application editedAlice = new ApplicationBuilder(ALICE).withPhone(VALID_PHONE_BOB).withEmail(VALID_EMAIL_BOB)
+        // same company and role, all other attributes different -> returns true
+        Application editedAlice = new ApplicationBuilder(ALICE).withEmail(VALID_EMAIL_BOB)
                 .withAddress(VALID_ADDRESS_BOB).withTags(VALID_TAG_HUSBAND).build();
         assertTrue(ALICE.isSameApplication(editedAlice));
 
@@ -73,8 +73,8 @@ public class ApplicationTest {
         Application editedAlice = new ApplicationBuilder(ALICE).withCompany(VALID_COMPANY_BOB).build();
         assertFalse(ALICE.equals(editedAlice));
 
-        // different phone -> returns false
-        editedAlice = new ApplicationBuilder(ALICE).withPhone(VALID_PHONE_BOB).build();
+        // different role -> returns false
+        editedAlice = new ApplicationBuilder(ALICE).withRole(VALID_ROLE_BOB).build();
         assertFalse(ALICE.equals(editedAlice));
 
         // different email -> returns false
@@ -93,7 +93,7 @@ public class ApplicationTest {
     @Test
     public void toStringMethod() {
         String expected = Application.class.getCanonicalName() + "{company=" + ALICE.getCompany()
-                + ", phone=" + ALICE.getPhone()
+                + ", role=" + ALICE.getRole()
                 + ", email=" + ALICE.getEmail() + ", address=" + ALICE.getAddress() + ", tags=" + ALICE.getTags() + "}";
         assertEquals(expected, ALICE.toString());
     }

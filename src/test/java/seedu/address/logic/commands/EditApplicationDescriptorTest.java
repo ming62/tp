@@ -6,8 +6,8 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import static seedu.address.logic.commands.CommandTestUtil.DESC_AMY;
 import static seedu.address.logic.commands.CommandTestUtil.DESC_BOB;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_ADDRESS_BOB;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_APPLICATION_DATE_BOB;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_COMPANY_BOB;
-import static seedu.address.logic.commands.CommandTestUtil.VALID_EMAIL_BOB;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_ROLE_BOB;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_TAG_HUSBAND;
 
@@ -45,8 +45,9 @@ public class EditApplicationDescriptorTest {
         editedAmy = new EditApplicationDescriptorBuilder(DESC_AMY).withRole(VALID_ROLE_BOB).build();
         assertFalse(DESC_AMY.equals(editedAmy));
 
-        // different email -> returns false
-        editedAmy = new EditApplicationDescriptorBuilder(DESC_AMY).withEmail(VALID_EMAIL_BOB).build();
+        // different application date -> returns false
+        editedAmy = new EditApplicationDescriptorBuilder(DESC_AMY)
+                .withApplicationDate(VALID_APPLICATION_DATE_BOB).build();
         assertFalse(DESC_AMY.equals(editedAmy));
 
         // different address -> returns false
@@ -63,8 +64,8 @@ public class EditApplicationDescriptorTest {
         EditApplicationDescriptor editApplicationDescriptor = new EditApplicationDescriptor();
         String expected = EditApplicationDescriptor.class.getCanonicalName() + "{company="
                 + editApplicationDescriptor.getCompany().orElse(null) + ", role="
-                + editApplicationDescriptor.getRole().orElse(null) + ", email="
-                + editApplicationDescriptor.getEmail().orElse(null) + ", address="
+                + editApplicationDescriptor.getRole().orElse(null) + ", applicationDate="
+                + editApplicationDescriptor.getApplicationDate().orElse(null) + ", address="
                 + editApplicationDescriptor.getAddress().orElse(null) + ", tags="
                 + editApplicationDescriptor.getTags().orElse(null) + "}";
         assertEquals(expected, editApplicationDescriptor.toString());

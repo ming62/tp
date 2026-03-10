@@ -2,13 +2,13 @@
   "applications": [ {
     "company": "Accenture",
     "role": "Software Engineer",
-    "email": "alice@example.com",
+    "applicationDate": "2026-03-09",
     "address": "123, Jurong West Ave 6, #08-111",
     "tags": [ "friends" ]
   }, {
     "company": "Accenture",
     "role": "Software Engineer",
-    "email": "pauline@example.com",
+    "applicationDate": "2026-03-10",
     "address": "4th street"
   } ]
 }

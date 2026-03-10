@@ -10,8 +10,8 @@ import seedu.address.commons.core.index.Index;
 import seedu.address.commons.util.StringUtil;
 import seedu.address.logic.parser.exceptions.ParseException;
 import seedu.address.model.application.Address;
+import seedu.address.model.application.ApplicationDate;
 import seedu.address.model.application.Company;
-import seedu.address.model.application.Email;
 import seedu.address.model.application.Role;
 import seedu.address.model.tag.Tag;
 
@@ -81,18 +81,18 @@ public class ParserUtil {
     }
 
     /**
-     * Parses a {@code String email} into an {@code Email}.
+     * Parses a {@code String applicationDate} into an {@code ApplicationDate}.
      * Leading and trailing whitespaces will be trimmed.
      *
-     * @throws ParseException if the given {@code email} is invalid.
+     * @throws ParseException if the given {@code applicationDate} is invalid.
      */
-    public static Email parseEmail(String email) throws ParseException {
-        requireNonNull(email);
-        String trimmedEmail = email.trim();
-        if (!Email.isValidEmail(trimmedEmail)) {
-            throw new ParseException(Email.MESSAGE_CONSTRAINTS);
+    public static ApplicationDate parseApplicationDate(String applicationDate) throws ParseException {
+        requireNonNull(applicationDate);
+        String trimmedApplicationDate = applicationDate.trim();
+        if (!ApplicationDate.isValidApplicationDate(trimmedApplicationDate)) {
+            throw new ParseException(ApplicationDate.MESSAGE_CONSTRAINTS);
         }
-        return new Email(trimmedEmail);
+        return new ApplicationDate(trimmedApplicationDate);
     }
 
     /**

@@ -280,7 +280,7 @@ _{Explain here how the data archiving feature will be implemented}_
 * prefers typing to mouse interactions
 * value fast data entry and quick access to structured application information
 
-**Value proposition**: Helps CS students manage mass applications by storing company contacts and its position details 
+**Value proposition**: Helps CS students manage mass applications by storing company contacts and its position details
 in a CLI environment. It allows target users to log application updates, record information about company / position and check deadlines, minimizing context switching between different job websites.
 
 
@@ -437,7 +437,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 4.  Should automatically save data after each modifying command.
 5.  Should store data locally on the user’s device and not require Internet access for normal operation.
 6.  Is not required to automate the internship application process since it only serves as a local application logbook.
-7. Should respond to typical commands within 2 seconds under normal usage conditions.
+7.  Should respond to typical commands within 2 seconds under normal usage conditions.
 
 *{More to be added}*
 
@@ -447,7 +447,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 * **Application records**: A stored entry representing one internship application, including details such as company, role, status, application date, location, URL, and notes.
 * **Current displayed list**: The list of application records currently shown to the user, which may be the full list or a filtered subset.
 * **Index**: The 1-based position of an application record in the current displayed list.
-* **Status**: The current stage of an application, such as Applied, Interview, Offer, Rejected, or Withdrawn. 
+* **Status**: The current stage of an application, such as Applied, Interview, Offer, Rejected, or Withdrawn.
 * **CLI(Command-line interface)**: A way of interacting with the application by typing commands.
 * **Local storage**: Data saved on the user’s own device rather than on an online server.
 * **Job URL**: A web link attached to an application record for quick access to the original job posting or company page.

@@ -5,7 +5,7 @@ import static seedu.address.commons.util.AppUtil.checkArgument;
 
 /**
  * Represents a Person's company name in the address book.
- * Guarantees: immutable; is valid as declared in {@link #isValidCompany(String)}
+ * Guarantees: immutable; is valid as declared in {@link #isValidRole(String)}
  */
 public class Role {
 
@@ -23,7 +23,7 @@ public class Role {
     /**
      * Constructs a {@code Company}.
      *
-     * @param company A valid company name.
+     * @param role A valid company name.
      */
     public Role(String role) {
         requireNonNull(role);

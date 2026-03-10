@@ -3,43 +3,43 @@
   "applications" : [ {
     "company" : "Accenture",
     "role" : "Software Engineer",
-    "email" : "alice@example.com",
+    "applicationDate" : "2026-01-01",
     "address" : "123, Jurong West Ave 6, #08-111",
     "tags" : [ "friends" ]
   }, {
     "company" : "Meta",
     "role" : "Data Analyst",
-    "email" : "johnd@example.com",
+    "applicationDate" : "2026-01-02",
     "address" : "311, Clementi Ave 2, #02-25",
     "tags" : [ "owesMoney", "friends" ]
   }, {
     "company" : "Google",
     "role" : "Mobile Developer",
-    "email" : "heinz@example.com",
+    "applicationDate" : "2026-01-03",
     "address" : "wall street",
     "tags" : [ ]
   }, {
     "company" : "Dyson",
     "role" : "Backend Developer",
-    "email" : "cornelia@example.com",
+    "applicationDate" : "2026-01-04",
     "address" : "10th street",
     "tags" : [ "friends" ]
   }, {
     "company" : "Tencent",
     "role" : "UX Designer",
-    "email" : "werner@example.com",
+    "applicationDate" : "2026-01-05",
     "address" : "michegan ave",
     "tags" : [ ]
   }, {
     "company" : "Foodpanda",
     "role" : "Frontend Developer",
-    "email" : "lydia@example.com",
+    "applicationDate" : "2026-01-06",
     "address" : "little tokyo",
     "tags" : [ ]
   }, {
     "company" : "Grab",
     "role" : "DevOps Engineer",
-    "email" : "anna@example.com",
+    "applicationDate" : "2026-01-07",
     "address" : "4th street",
     "tags" : [ ]
   } ]

@@ -5,8 +5,8 @@ import java.util.Set;
 
 import seedu.address.model.application.Address;
 import seedu.address.model.application.Application;
+import seedu.address.model.application.ApplicationDate;
 import seedu.address.model.application.Company;
-import seedu.address.model.application.Email;
 import seedu.address.model.application.Role;
 import seedu.address.model.tag.Tag;
 import seedu.address.model.util.SampleDataUtil;
@@ -18,12 +18,12 @@ public class ApplicationBuilder {
 
     public static final String DEFAULT_COMPANY = "Amazon";
     public static final String DEFAULT_ROLE = "Software Engineer Intern";
-    public static final String DEFAULT_EMAIL = "amy@gmail.com";
+    public static final String DEFAULT_APPLICATION_DATE = "2026-03-09";
     public static final String DEFAULT_ADDRESS = "123, Jurong West Ave 6, #08-111";
 
     private Company company;
     private Role role;
-    private Email email;
+    private ApplicationDate applicationDate;
     private Address address;
     private Set<Tag> tags;
 
@@ -33,7 +33,7 @@ public class ApplicationBuilder {
     public ApplicationBuilder() {
         company = new Company(DEFAULT_COMPANY);
         role = new Role(DEFAULT_ROLE);
-        email = new Email(DEFAULT_EMAIL);
+        applicationDate = new ApplicationDate(DEFAULT_APPLICATION_DATE);
         address = new Address(DEFAULT_ADDRESS);
         tags = new HashSet<>();
     }
@@ -44,7 +44,7 @@ public class ApplicationBuilder {
     public ApplicationBuilder(Application applicationToCopy) {
         company = applicationToCopy.getCompany();
         role = applicationToCopy.getRole();
-        email = applicationToCopy.getEmail();
+        applicationDate = applicationToCopy.getApplicationDate();
         address = applicationToCopy.getAddress();
         tags = new HashSet<>(applicationToCopy.getTags());
     }
@@ -82,15 +82,15 @@ public class ApplicationBuilder {
     }
 
     /**
-     * Sets the {@code Email} of the {@code Application} that we are building.
+     * Sets the {@code ApplicationDate} of the {@code Application} that we are building.
      */
-    public ApplicationBuilder withEmail(String email) {
-        this.email = new Email(email);
+    public ApplicationBuilder withApplicationDate(String applicationDate) {
+        this.applicationDate = new ApplicationDate(applicationDate);
         return this;
     }
 
     public Application build() {
-        return new Application(company, role, email, address, tags);
+        return new Application(company, role, applicationDate, address, tags);
     }
 
 }

@@ -289,16 +289,35 @@ in a CLI environment. It allows target users to log application updates, record 
 
 Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unlikely to have) - `*`
 
-| Priority | As a …​                                    | I want to …​                 | So that I can…​                                                        |
-|----------|--------------------------------------------|------------------------------|------------------------------------------------------------------------|
-| `* * *`  | new user                                   | see usage instructions       | refer to instructions when I forget how to use the App                 |
-| `* * *`  | user                                       | add a new person             |                                                                        |
-| `* * *`  | user                                       | delete a person              | remove entries that I no longer need                                   |
-| `* * *`  | user                                       | find a person by name        | locate details of persons without having to go through the entire list |
-| `* *`    | user                                       | hide private contact details | minimize chance of someone else seeing them by accident                |
-| `*`      | user with many persons in the address book | sort persons by name         | locate a person easily                                                 |
+| Priority | As a …​                                     | I want to …​                                 | So that I can…​                                                        |
+|----------|--------------------------------------------|---------------------------------------------|-----------------------------------------------------------------------|
+| `* * *`  | first time user                            | add an application record                   | track my application                                                  |
+| `* * *`  | first time user                            | view all applications in a list             | see all my applications                                               |
+| `* * *`  | first time user                            | delete application records                  | remove companies I am no longer interested in                         |
+| `* * *`  | first time user                            | edit an application's details               | correct mistakes I made                                               |
+| `* * *`  | user                                       | update an application status                | track the progress of my application                                  |
+| `* * *`  | user                                       | tag a deadline to each company              | track my deadlines efficiently                                        |
+| `* * *`  | user                                       | save data on my hard disk                   | access my records locally                                             |
+| `* * *`  | user                                       | add a job URL to an entry                   | quickly revisit the job posting                                       |
+| `* *`    | user                                       | sort company list by deadline               | know which deadlines are coming up                                    |
+| `* *`    | user                                       | filter the list by status                   | see only my active applications                                       |
+| `* *`    | user                                       | view the potential pay of each position     | know which applications result in higher pay                          |
+| `* *`    | user                                       | filter the list by pay range                | determine expected salary levels                                      |
+| `* *`    | user                                       | view total number of applications by status | track my overall progress                                             |
+| `* *`    | user                                       | auto save my data after every command       | avoid losing data if the terminal closes                              |
+| `* *`    | user                                       | copy contact info between entries           | avoid retyping everything                                             |
+| `* *`    | user                                       | favourite companies                         | track companies I am particularly interested in                       |
+| `* *`    | first time user                            | see dummy data                              | understand how the data is structured                                 |
+| `* *`    | first time user                            | find company contact details by name        | follow up with companies easily                                       |
+| `*`      | user                                       | pin the application window on top           | keep the logbook visible while browsing job portals                   |
+| `*`      | user                                       | undo a command                              | recover from accidental deletions                                     |
+| `*`      | expert user                                | use short aliases                           | type commands faster                                                  |
+| `*`      | expert user                                | use tab completion                          | avoid typing full commands                                            |
+| `*`      | expert user                                | cycle through previous commands             | reuse previously typed commands                                       |
+| `*`      | expert user                                | bulk delete applications by status          | remove rejected or ghosted applications quickly                       |
+| `*`      | expert user                                | export data into another file format        | keep backups or reuse data elsewhere                                  |
+| `*`      | expert user                                | add tags to companies                       | record additional information about companies                         |
 
-*{More to be added}*
 
 ### Use cases
 
